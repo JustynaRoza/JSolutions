@@ -1,7 +1,9 @@
 <template>
   <v-app>
     <v-main>
-      <router-view/>
+      <div id="content" style="min-height: 100vh">
+        <component :is="layout"><router-view /></component>
+      </div>
     </v-main>
   </v-app>
 </template>
@@ -14,5 +16,10 @@ export default {
   data: () => ({
     //
   }),
+  computed: {
+    layout() {
+      return this.$route.meta.layout || "defaultLayout";
+    },
+  }
 }
 </script>
