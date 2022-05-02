@@ -9,17 +9,19 @@
 </template>
 
 <script>
-
 export default {
-  name: 'App',
-
-  data: () => ({
-    //
-  }),
+  name: "App",
+  data: () => ({}),
   computed: {
     layout() {
       return this.$route.meta.layout || "defaultLayout";
     },
-  }
-}
+  },
+};
 </script>
+<style>
+html {
+  /* font-family: "Helvetica", "Arial", sans-serif !important; */
+  font-family: Montserrat, Helvetica Neue, Arial, sans-serif !important;
+}
+</style>
