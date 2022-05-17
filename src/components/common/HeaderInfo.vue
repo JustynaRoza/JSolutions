@@ -50,7 +50,7 @@ export default {
 .v-footer {
   padding: 0px;
   .v-card {
-    background-color: #17406d !important;
+    background-color: #204b63 !important;
   }
 }
 .v-btn.v-btn--density-default {

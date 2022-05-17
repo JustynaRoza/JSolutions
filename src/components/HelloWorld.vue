@@ -9,8 +9,9 @@
       transition="fade-transition"
     ></v-carousel-item>
   </v-carousel>
+  <!-- <carousel /> -->
   <v-container class="grey lighten-5 mt-16" :style="size">
-    <v-row class="mb-6" no-gutters>
+    <v-row class="mb-6" no-gutters v-if="!$vuetify.display.mobile">
       <v-col
         sm="5"
         md="6"
@@ -27,6 +28,7 @@
           undoubtable source. Lorem
         </p>
       </v-col>
+
       <v-col
         sm="5"
         offset-sm="2"
@@ -37,7 +39,23 @@
         <img :src="getImage('milling-machine')" height="150" class="ma-auto" />
       </v-col>
     </v-row>
-    <v-row no-gutters>
+    <v-row v-else>
+      <div class="ma-auto">
+        <img :src="getImage('milling-machine')" height="150" />
+      </div>
+      <div>
+        <p class="pa-2 text-justify" outlined tile>
+          Contrary to popular belief, Lorem Ipsum is not simply random text. It
+          has roots in a piece of classical Latin literature from 45 BC, making
+          it over 2000 years old. Richard McClintock, a Latin professor at
+          Hampden-Sydney College in Virginia, looked up one of the more obscure
+          Latin words, consectetur, from a Lorem Ipsum passage, and going
+          through the cites of the word in classical literature, discovered the
+          undoubtable source. Lorem
+        </p>
+      </div>
+    </v-row>
+    <v-row no-gutters v-if="!$vuetify.display.mobile">
       <v-col
         sm="5"
         offset-sm="2"
@@ -64,7 +82,23 @@
         </p>
       </v-col>
     </v-row>
-    <v-row class="mb-6" no-gutters>
+    <v-row v-else>
+      <div class="ma-auto">
+        <img :src="getImage('laser')" height="150" />
+      </div>
+      <div>
+        <p class="pa-2 text-justify" outlined tile>
+          Contrary to popular belief, Lorem Ipsum is not simply random text. It
+          has roots in a piece of classical Latin literature from 45 BC, making
+          it over 2000 years old. Richard McClintock, a Latin professor at
+          Hampden-Sydney College in Virginia, looked up one of the more obscure
+          Latin words, consectetur, from a Lorem Ipsum passage, and going
+          through the cites of the word in classical literature, discovered the
+          undoubtable source. Lorem
+        </p>
+      </div>
+    </v-row>
+    <v-row class="mb-6" no-gutters v-if="!$vuetify.display.mobile">
       <v-col
         sm="5"
         md="6"
@@ -91,7 +125,23 @@
         <img :src="getImage('machine-press')" height="150" class="ma-auto" />
       </v-col>
     </v-row>
-    <v-row no-gutters>
+    <v-row v-else>
+      <div class="ma-auto">
+        <img :src="getImage('machine-press')" height="150" />
+      </div>
+      <div>
+        <p class="pa-2 text-justify" outlined tile>
+          Contrary to popular belief, Lorem Ipsum is not simply random text. It
+          has roots in a piece of classical Latin literature from 45 BC, making
+          it over 2000 years old. Richard McClintock, a Latin professor at
+          Hampden-Sydney College in Virginia, looked up one of the more obscure
+          Latin words, consectetur, from a Lorem Ipsum passage, and going
+          through the cites of the word in classical literature, discovered the
+          undoubtable source. Lorem
+        </p>
+      </div>
+    </v-row>
+    <v-row no-gutters v-if="!$vuetify.display.mobile">
       <v-col
         sm="5"
         offset-sm="2"
@@ -118,10 +168,27 @@
         </p>
       </v-col>
     </v-row>
+    <v-row v-else>
+      <div class="ma-auto">
+        <img :src="getImage('drilling-machine')" height="150" />
+      </div>
+      <div>
+        <p class="pa-2 text-justify" outlined tile>
+          Contrary to popular belief, Lorem Ipsum is not simply random text. It
+          has roots in a piece of classical Latin literature from 45 BC, making
+          it over 2000 years old. Richard McClintock, a Latin professor at
+          Hampden-Sydney College in Virginia, looked up one of the more obscure
+          Latin words, consectetur, from a Lorem Ipsum passage, and going
+          through the cites of the word in classical literature, discovered the
+          undoubtable source. Lorem
+        </p>
+      </div>
+    </v-row>
   </v-container>
 </template>
 
 <script>
+import Carousel from "../components/common/Carousel.vue";
 export default {
   name: "HelloWorld",
 
@@ -131,13 +198,13 @@ export default {
         src: new URL(`../assets/mitsuPoziomo.jpg`, import.meta.url).href,
       },
       {
-        src: new URL(`../assets/mitsuPoziomo.jpg`, import.meta.url).href,
+        src: new URL(`../assets/laser.jpg`, import.meta.url).href,
       },
       {
-        src: new URL(`../assets/mitsuPoziomo.jpg`, import.meta.url).href,
+        src: new URL(`../assets/przebijarka.jpg`, import.meta.url).href,
       },
       {
-        src: new URL(`../assets/mitsuPoziomo.jpg`, import.meta.url).href,
+        src: new URL(`../assets/agie.jpg`, import.meta.url).href,
       },
     ],
   }),
@@ -179,6 +246,9 @@ export default {
           return "width:45%";
       }
     },
+  },
+  components: {
+    Carousel,
   },
 };
 </script>

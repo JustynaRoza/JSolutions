@@ -40,26 +40,11 @@ export default {
     },
   },
   computed: {
-    calcWidth() {
-      if (this.scrollVal === 0) {
-        return 200;
-      }
-      if (this.scrollVal > 0 && this.scrollVal <= 100) return 250;
-      if (this.scrollVal > 100 && this.scrollVal) return 300;
-    },
-    calcHeight() {
-      if (this.scrollVal === 0) {
-        return 80;
-      }
-      if (this.scrollVal > 0 && this.scrollVal <= 100) return 100;
-      if (this.scrollVal > 100 && this.scrollVal) return 120;
-    },
     calcStyles() {
-      if (this.scrollVal === 0) {
+      if (this.scrollVal <= 200) {
         return "smallImg";
       }
-      if (this.scrollVal > 0 && this.scrollVal <= 100) return "mediumImg";
-      if (this.scrollVal > 100 && this.scrollVal) return "bigImg";
+      if (this.scrollVal > 200) return "bigImg";
     },
   },
 };
