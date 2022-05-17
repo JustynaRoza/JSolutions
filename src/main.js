@@ -12,4 +12,10 @@ const app = createApp(App)
   .use(router)
   .use(vuetify)
 app.component("defaultLayout", defaultLayout);
+app.directive('scroll', {
+  inserted: function (el, binding) {
+    const onScrollCallback = binding.value; 
+    window.addEventListener('scroll', () => onScrollCallback());
+  }
+})
 app.mount('#app')

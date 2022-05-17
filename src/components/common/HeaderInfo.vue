@@ -8,7 +8,12 @@
     >
       <v-card-text class="pa-0">
         <div class="mr-auto text-grey-lighten-5">
-          <v-btn icon="mdi-home" class="mb-1 mr-0" variant="plain"></v-btn>
+          <v-btn
+            icon="mdi-home"
+            class="mb-1 mr-0"
+            variant="plain"
+            @click="redirect()"
+          ></v-btn>
           <span>Biertowice 202, 32-440 Sułkowice</span>
         </div>
       </v-card-text>
@@ -25,6 +30,19 @@
 <script>
 export default {
   name: "HeaderInfo",
+  methods: {
+    async redirect() {
+      try {
+        let anchor = document.createElement("a");
+        anchor.target = "_blank";
+        anchor.href = "https://goo.gl/maps/WJNMJ4o2LeaXdCNH9";
+        document.body.appendChild(anchor);
+        await anchor.click();
+      } catch (err) {
+        console.log("error");
+      }
+    },
+  },
 };
 </script>
 
