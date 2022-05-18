@@ -8,7 +8,6 @@
       <slot />
     </div>
     <footer-bottom />
-
     <!-- <vue-cookie-comply
       :preferences="preferences"
       @on-accept-all-cookies="onAccept"

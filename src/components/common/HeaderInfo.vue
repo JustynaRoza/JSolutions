@@ -34,11 +34,26 @@
       </v-card-text>
     </v-card>
   </v-footer>
+  <v-snackbar v-model="snackbar" :timeout="timeout">
+    Skopiowano <i>{{ text }}</i> do schowka!
+    <template v-slot:actions>
+      <v-btn color="blue" variant="text" @click="snackbar = false">
+        zamknij
+      </v-btn>
+    </template>
+  </v-snackbar>
 </template>
 
 <script>
 export default {
   name: "HeaderInfo",
+  data() {
+    return {
+      snackbar: false,
+      timeout: 2000,
+      text: "",
+    };
+  },
   methods: {
     async redirect() {
       try {
@@ -54,7 +69,8 @@ export default {
     copyTel(text) {
       var copyText = text;
       navigator.clipboard.writeText(text);
-      alert("skopiowano nr telefonu " + copyText);
+      this.text = text;
+      this.snackbar = true;
     },
   },
 };

@@ -1,6 +1,6 @@
 <template>
   <p
-    class="text-justify mx-16 mt-16 mb-5 pa-4 font-weight-bold borderStyles"
+    class="text-justify mx-xs-4 mx-sm-4 mx-md-16 mt-16 mb-5 pa-4 font-weight-bold borderStyles"
     style="font-size: 20px; font-variant: small-caps"
   >
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -17,11 +17,13 @@
     <i class="fa-solid fa-cog fa-spin fa-xl"></i>
   </div>
   <div class="about">
-    <timeline />
+    <timeline v-if="!$vuetify.display.mobile" />
+    <timeline-mobile v-else />
   </div>
 </template>
 <script>
 import Timeline from "../components/common/Timeline.vue";
+import TimelineMobile from "../components/common/TimelineMobile.vue";
 
 export default {
   data() {
@@ -29,6 +31,7 @@ export default {
   },
   components: {
     Timeline,
+    TimelineMobile,
   },
 };
 </script>
