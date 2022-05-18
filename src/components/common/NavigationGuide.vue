@@ -26,11 +26,70 @@
       <v-img :src="Src()" :class="calcStyles"></v-img>
     </li>
   </ul>
+  <div v-else>
+    <v-app-bar color="white" prominent>
+      <v-app-bar-nav-icon
+        variant="text"
+        @click.stop="drawer = !drawer"
+      ></v-app-bar-nav-icon>
+      <!-- <v-toolbar-title> -->
+      <v-spacer></v-spacer>
+      <v-img :src="Src()" width="40" height="40" style="float: left"></v-img>
+      <!-- </v-toolbar-title> -->
+    </v-app-bar>
+    <v-navigation-drawer v-model="drawer" bottom temporary>
+      <v-list>
+        <v-list-item v-if="false">
+          <v-img
+            :src="Src()"
+            width="40"
+            height="40"
+            style="float: left"
+          ></v-img>
+        </v-list-item>
+        <v-list-item
+          v-for="(item, index) in items"
+          :key="index"
+          @click="$router.push(item.value)"
+          >{{ item.title }}
+          <v-list-item-avatar end>
+            <v-icon :icon="item.icon"> </v-icon> </v-list-item-avatar
+        ></v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+  </div>
 </template>
 
 <script>
 export default {
   name: "NavigationGuide",
+  data() {
+    return {
+      drawer: false,
+      items: [
+        {
+          title: "GŁÓWNA",
+          value: "/",
+          icon: "mdi-domain",
+        },
+        {
+          title: "O NAS",
+          value: "/about",
+          icon: "mdi-account-supervisor",
+        },
+        {
+          title: "OFERTA",
+          value: "/about",
+          icon: "mdi-offer",
+        },
+        {
+          title: "KONTAKT",
+          value: "/about",
+          icon: "mdi-card-account-phone-outline ",
+        },
+      ],
+    };
+  },
   props: {
     scrollVal: Number,
   },
