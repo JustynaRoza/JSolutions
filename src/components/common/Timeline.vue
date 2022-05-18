@@ -5,6 +5,7 @@
       :key="i"
       :dot-color="item.color"
       :icon="item.icon"
+      icon-color="white"
       fill-dot
     >
       <template v-slot:opposite style="ma-auto">
@@ -28,7 +29,16 @@
         </div>
       </template>
       <v-card class="mx-auto" width="700px">
-        <v-img :src="item.src" cover></v-img>
+        <v-img :src="item.src" cover :lazy-src="item.src">
+          <template v-slot:placeholder>
+            <v-row class="fill-height ma-0" align="center" justify="center">
+              <v-progress-circular
+                indeterminate
+                color="grey-lighten-5"
+              ></v-progress-circular>
+            </v-row>
+          </template>
+        </v-img>
 
         <v-card-title> Maszyna nazwa </v-card-title>
 
@@ -112,6 +122,6 @@ export default {
   margin-top: 20%;
 }
 .mdi:before {
-  color: white !important;
+  // color: white !important;
 }
 </style>

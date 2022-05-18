@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     Src() {
-      return new URL(`../../assets/Logo-cropped.svg`, import.meta.url).href;
+      return new URL(`../../assets/Logo2.svg`, import.meta.url).href;
     },
   },
   computed: {
