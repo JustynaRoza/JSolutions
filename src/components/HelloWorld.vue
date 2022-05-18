@@ -1,152 +1,270 @@
 <template>
-  <v-container>
-    <v-row class="text-center">
-      <v-col cols="12">
-        <v-img
-          :src="logo"
-          class="my-3"
-          contain
-          height="200"
-        />
-      </v-col>
-
-      <v-col class="mb-4">
-        <h1 class="display-2 font-weight-bold mb-3">
-          Welcome to the Vuetify 3 Beta 77
-        </h1>
-
-          <h4>Vite Preview</h4>
-
-        <p class="subheading font-weight-regular">
-          For help and collaboration with other Vuetify developers,
-          <br>please join our online
-          <a
-            href="https://community.vuetifyjs.com"
-            target="_blank"
-          >Discord Community</a>
+  <v-carousel hide-delimiters cycle interval="5000" hide-on-leave="true">
+    <v-carousel-item
+      v-for="(item, i) in items"
+      :key="i"
+      :src="item.src"
+      cover
+      reverse-transition="fade-transition"
+      transition="fade-transition"
+    ></v-carousel-item>
+  </v-carousel>
+  <!-- <carousel /> -->
+  <v-container class="grey lighten-5 mt-16" :style="size">
+    <v-row class="mb-6" no-gutters v-if="!$vuetify.display.mobile">
+      <v-col
+        sm="5"
+        md="6"
+        style="justify-self: end"
+        class="justify-end text-justify"
+      >
+        <p class="pa-2 text-right" outlined tile>
+          Contrary to popular belief, Lorem Ipsum is not simply random text. It
+          has roots in a piece of classical Latin literature from 45 BC, making
+          it over 2000 years old. Richard McClintock, a Latin professor at
+          Hampden-Sydney College in Virginia, looked up one of the more obscure
+          Latin words, consectetur, from a Lorem Ipsum passage, and going
+          through the cites of the word in classical literature, discovered the
+          undoubtable source. Lorem
         </p>
       </v-col>
 
       <v-col
-        class="mb-5"
-        cols="12"
+        sm="5"
+        offset-sm="2"
+        md="6"
+        offset-md="0"
+        class="text-center my-auto"
       >
-        <h2 class="headline font-weight-bold mb-5">
-          What's next?
-        </h2>
-
-        <v-row justify="center">
-          <a
-            v-for="(next, i) in whatsNext"
-            :key="i"
-            :href="next.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ next.text }}
-          </a>
-        </v-row>
+        <img :src="getImage('milling-machine')" height="150" class="ma-auto" />
       </v-col>
-
+    </v-row>
+    <v-row v-else>
+      <div class="ma-auto">
+        <img :src="getImage('milling-machine')" height="150" />
+      </div>
+      <div>
+        <p class="pa-2 text-justify" outlined tile>
+          Contrary to popular belief, Lorem Ipsum is not simply random text. It
+          has roots in a piece of classical Latin literature from 45 BC, making
+          it over 2000 years old. Richard McClintock, a Latin professor at
+          Hampden-Sydney College in Virginia, looked up one of the more obscure
+          Latin words, consectetur, from a Lorem Ipsum passage, and going
+          through the cites of the word in classical literature, discovered the
+          undoubtable source. Lorem
+        </p>
+      </div>
+    </v-row>
+    <v-row no-gutters v-if="!$vuetify.display.mobile">
       <v-col
-        class="mb-5"
-        cols="12"
+        sm="5"
+        offset-sm="2"
+        md="6"
+        offset-md="0"
+        class="text-center my-auto"
       >
-        <h2 class="headline font-weight-bold mb-5">
-          Important Links
-        </h2>
-
-        <v-row justify="center">
-          <a
-            v-for="(link, i) in importantLinks"
-            :key="i"
-            :href="link.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ link.text }}
-          </a>
-        </v-row>
+        <img :src="getImage('laser')" height="150" class="ma-auto" />
       </v-col>
-
       <v-col
-        class="mb-5"
-        cols="12"
+        sm="5"
+        md="6"
+        style="justify-self: end"
+        class="justify-end text-justify"
       >
-        <h2 class="headline font-weight-bold mb-5">
-          Ecosystem
-        </h2>
-
-        <v-row justify="center">
-          <a
-            v-for="(eco, i) in ecosystem"
-            :key="i"
-            :href="eco.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ eco.text }}
-          </a>
-        </v-row>
+        <p class="pa-2 text-left" outlined tile>
+          Contrary to popular belief, Lorem Ipsum is not simply random text. It
+          has roots in a piece of classical Latin literature from 45 BC, making
+          it over 2000 years old. Richard McClintock, a Latin professor at
+          Hampden-Sydney College in Virginia, looked up one of the more obscure
+          Latin words, consectetur, from a Lorem Ipsum passage, and going
+          through the cites of the word in classical literature, discovered the
+          undoubtable source. Lorem
+        </p>
       </v-col>
+    </v-row>
+    <v-row v-else>
+      <div class="ma-auto">
+        <img :src="getImage('laser')" height="150" />
+      </div>
+      <div>
+        <p class="pa-2 text-justify" outlined tile>
+          Contrary to popular belief, Lorem Ipsum is not simply random text. It
+          has roots in a piece of classical Latin literature from 45 BC, making
+          it over 2000 years old. Richard McClintock, a Latin professor at
+          Hampden-Sydney College in Virginia, looked up one of the more obscure
+          Latin words, consectetur, from a Lorem Ipsum passage, and going
+          through the cites of the word in classical literature, discovered the
+          undoubtable source. Lorem
+        </p>
+      </div>
+    </v-row>
+    <v-row class="mb-6" no-gutters v-if="!$vuetify.display.mobile">
+      <v-col
+        sm="5"
+        md="6"
+        style="justify-self: end"
+        class="justify-end text-justify"
+      >
+        <p class="pa-2 text-right" outlined tile>
+          Contrary to popular belief, Lorem Ipsum is not simply random text. It
+          has roots in a piece of classical Latin literature from 45 BC, making
+          it over 2000 years old. Richard McClintock, a Latin professor at
+          Hampden-Sydney College in Virginia, looked up one of the more obscure
+          Latin words, consectetur, from a Lorem Ipsum passage, and going
+          through the cites of the word in classical literature, discovered the
+          undoubtable source. Lorem
+        </p>
+      </v-col>
+      <v-col
+        sm="5"
+        offset-sm="2"
+        md="6"
+        offset-md="0"
+        class="text-center my-auto"
+      >
+        <img :src="getImage('machine-press')" height="150" class="ma-auto" />
+      </v-col>
+    </v-row>
+    <v-row v-else>
+      <div class="ma-auto">
+        <img :src="getImage('machine-press')" height="150" />
+      </div>
+      <div>
+        <p class="pa-2 text-justify" outlined tile>
+          Contrary to popular belief, Lorem Ipsum is not simply random text. It
+          has roots in a piece of classical Latin literature from 45 BC, making
+          it over 2000 years old. Richard McClintock, a Latin professor at
+          Hampden-Sydney College in Virginia, looked up one of the more obscure
+          Latin words, consectetur, from a Lorem Ipsum passage, and going
+          through the cites of the word in classical literature, discovered the
+          undoubtable source. Lorem
+        </p>
+      </div>
+    </v-row>
+    <v-row no-gutters v-if="!$vuetify.display.mobile">
+      <v-col
+        sm="5"
+        offset-sm="2"
+        md="6"
+        offset-md="0"
+        class="text-center my-auto"
+      >
+        <img :src="getImage('drilling-machine')" height="150" class="ma-auto" />
+      </v-col>
+      <v-col
+        sm="5"
+        md="6"
+        style="justify-self: end"
+        class="justify-end text-justify"
+      >
+        <p class="pa-2 text-left" outlined tile>
+          Contrary to popular belief, Lorem Ipsum is not simply random text. It
+          has roots in a piece of classical Latin literature from 45 BC, making
+          it over 2000 years old. Richard McClintock, a Latin professor at
+          Hampden-Sydney College in Virginia, looked up one of the more obscure
+          Latin words, consectetur, from a Lorem Ipsum passage, and going
+          through the cites of the word in classical literature, discovered the
+          undoubtable source. Lorem
+        </p>
+      </v-col>
+    </v-row>
+    <v-row v-else>
+      <div class="ma-auto">
+        <img :src="getImage('drilling-machine')" height="150" />
+      </div>
+      <div>
+        <p class="pa-2 text-justify" outlined tile>
+          Contrary to popular belief, Lorem Ipsum is not simply random text. It
+          has roots in a piece of classical Latin literature from 45 BC, making
+          it over 2000 years old. Richard McClintock, a Latin professor at
+          Hampden-Sydney College in Virginia, looked up one of the more obscure
+          Latin words, consectetur, from a Lorem Ipsum passage, and going
+          through the cites of the word in classical literature, discovered the
+          undoubtable source. Lorem
+        </p>
+      </div>
     </v-row>
   </v-container>
 </template>
 
 <script>
-import logo from '../assets/logo.svg'
-
+import Carousel from "../components/common/Carousel.vue";
 export default {
-  name: 'HelloWorld',
+  name: "HelloWorld",
 
   data: () => ({
-    ecosystem: [
+    items: [
       {
-        text: 'vuetify-loader',
-        href: 'https://github.com/vuetifyjs/vuetify-loader',
+        src: new URL(`../assets/mitsuPoziomo.jpg`, import.meta.url).href,
       },
       {
-        text: 'github',
-        href: 'https://github.com/vuetifyjs/vuetify',
+        src: new URL(`../assets/laser.jpg`, import.meta.url).href,
       },
       {
-        text: 'awesome-vuetify',
-        href: 'https://github.com/vuetifyjs/awesome-vuetify',
-      },
-    ],
-    importantLinks: [
-      {
-        text: 'Chat',
-        href: 'https://community.vuetifyjs.com',
+        src: new URL(`../assets/przebijarka.jpg`, import.meta.url).href,
       },
       {
-        text: 'Made with Vuetify',
-        href: 'https://madewithvuejs.com/vuetify',
-      },
-      {
-        text: 'Twitter',
-        href: 'https://twitter.com/vuetifyjs',
-      },
-      {
-        text: 'Articles',
-        href: 'https://medium.com/vuetify',
-      },
-    ],
-    logo,
-    whatsNext: [
-      {
-        text: 'Explore components',
-        href: 'https://vuetifyjs.com',
-      },
-      {
-        text: 'Roadmap',
-        href: 'https://vuetifyjs.com/introduction/roadmap/',
-      },
-      {
-        text: 'Frequently Asked Questions',
-        href: 'https://vuetifyjs.com/getting-started/frequently-asked-questions',
+        src: new URL(`../assets/agie.jpg`, import.meta.url).href,
       },
     ],
   }),
-}
+  methods: {
+    getImageUrl() {
+      return new URL(`../assets/mitsuPoziomo.jpg`, import.meta.url).href;
+    },
+    getImage(name) {
+      return new URL(`../assets/${name}.png`, import.meta.url).href;
+    },
+  },
+  computed: {
+    height() {
+      console.log(this.$vuetify.display.name);
+      switch (this.$vuetify.display.name) {
+        case "xs":
+          return 220;
+        case "sm":
+          return 400;
+        case "md":
+          return 400;
+        case "lg":
+          return 500;
+        case "xl":
+          return 600;
+      }
+    },
+    size() {
+      switch (this.$vuetify.display.name) {
+        case "xs":
+          return "width:90%";
+        case "sm":
+          return "width:90%";
+        case "md":
+          return "width:60%";
+        case "lg":
+          return "width:50%";
+        case "xl":
+          return "width:45%";
+      }
+    },
+  },
+  components: {
+    Carousel,
+  },
+};
 </script>
+<style lang="scss" scoped>
+.new-transition {
+  &-leave-active {
+    position: absolute;
+  }
+  &-enter-active,
+  &-leave,
+  &-leave-to {
+    transition: 1000ms; /* here you can define your desired time for transition */
+  }
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+  }
+}
+</style>
