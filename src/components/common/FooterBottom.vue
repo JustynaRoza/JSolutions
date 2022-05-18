@@ -15,6 +15,11 @@
     <div class="text-white pt-0">
       Tu jest stopka nie wiem co tutaj ma być bo jest tak bal efe whefuew
       ejwnfJEW EWFJEWIOFJE FEWNFIWQ jweiofe eiwfue
+      <a
+        href="https://www.flaticon.com/free-icons/machine"
+        title="machine icons"
+        >Machine icons created by Freepik - Flaticon</a
+      >
     </div>
 
     <v-divider></v-divider>
